@@ -1,0 +1,35 @@
+<html>
+<body>
+  <input type="text" placeholder="name" id="name"/>
+  <input type="text" placeholder="prix" id="prix"/>
+  <input type="text" placeholder="description" id="description"/>
+  <input type="file" id="file" accept="image/*"/>
+  <button id="send">Send</button>
+	<script>
+
+          var formDataToSend = {
+          requestName:"authentification",
+          data:{
+            email:'christiankamdem2@gmail.com',
+            password:'mypassword'
+          }
+          };
+
+              const urlToSend = "http://127.0.0.1:8080";
+              let xhrSendData = new XMLHttpRequest();
+                  xhrSendData.addEventListener("loadstart", () =>
+                   {
+                   });
+                  xhrSendData.addEventListener("load", () =>
+                   {
+                          console.log(xhrSendData.response);
+                   });
+                  xhrSendData.addEventListener("error",()=>{
+                    //console.log(e.error);
+                  });
+             xhrSendData.responseType = "text";
+             xhrSendData.open('POST',urlToSend, true);
+            xhrSendData.send(JSON.stringify(formDataToSend));
+  </script>
+</body>
+</html>
